@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="jquery.js" charset="utf-8"></script>
+    <script src="client.js" charset="utf-8"></script>
+
+</head>
+
+<body class=container>
+    <header class=jumbotron>
+        <h1>Salary Calculator</h1>
+    </header>
+    <div id=form_input>
+        <h4>Add Employee</h4>
+        <input type="text" id="firstNameInput" class="input " placeHolder="First name">
+        <input type="text" id="lastNameInput" class="input " placeHolder="Last name">
+        <input type="number" id="idNumberInput" class="input " placeHolder="ID">
+        <input type="text" id="titleInput" class="input " placeHolder="title">
+        <input type="number" id="annualSalaryInput" class="input " placeHolder="Annual Salary">
+        <button id ="btn" class="btn btn-secondary">Submit</button>
+    </div>
+    <div id=table>
+        <h4 >Employees</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Annual Salary</th>
+                    <th scope="col" ></th>
+
+                </tr>
+            </thead>
+            <tbody id = "tableBody">
+            
+            </tbody>
+        </table>
+    </div>
+    <div >
+        Total Monthly: $ 
+        <span id=totalOutPut ></span>
+    </div>
+
+
+    <p id = "hi">kbdfhgbdf</p>
+<button id= "deleteBtn1">delete1</button>
+</body>
+
+</html>

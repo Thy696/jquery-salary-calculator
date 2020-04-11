@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+    border: 1px solid black;
+}
+h4{
+    text-align: left;
+}
+
+
+
+#totalOutPut{
+    text-align: right;
+}
