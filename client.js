@@ -31,8 +31,7 @@ function addEmployee() {
     // x();
 } // end addEmployee
 
-
-let deleteButton = $("<tr><th><button id ='deleteBtn' >Delete</button></th></tr>");
+var deleteButton = $("<tr><th><button id ='deleteBtn' >Delete</button></th></tr>");
 
 function displayEmployee() {
     let el = $('#tableBody');
@@ -42,13 +41,26 @@ function displayEmployee() {
     for (let employee of employeeArray) {
         let tr = $(`<tr><th>${employee.firstName}</th><th>${employee.lastName}</th><th>${employee.id}</th><th>${employee.title}</th><th>${employee.annualSalary}</th></tr>`);
         $('#tableBody').append(tr);
-
         tr.append(deleteButton);
 
-
     }//end for loop
+}
+
+function deleteByBtn() {
+    console.log('Click a list item!');
+    
+    $('#hi').remove();
 
 }
+
+
+function readyNow() {
+    $('#btn').on('click', addEmployee);
+    deleteButton.on('click', deleteByBtn);
+
+
+}
+
 
 
 function calculateTotal() {
@@ -66,25 +78,3 @@ function calculateTotal() {
         el.css({ 'background-color': 'red' });
     }
 }//end calculateTotalPrice
-
-
-
-
-
-function deleteByBtn() {
-    console.log('Click a list item!');
-    // for (let employee of employeeArray) {
-    //     let tr1 = $(`<tr><th>${employee.firstName}</th><th>${employee.lastName}</th><th>${employee.id}</th><th>${employee.title}</th><th>${employee.annualSalary}</th></tr>`);
-    //     tr1.remove();
-    // }//end for loop
-
-    $('#hi').remove();
-
-}
-
-function readyNow() {
-    $('#btn').on('click', addEmployee);
-    $('#deleteBtn').on('click', deleteByBtn);
-
-
-}
