@@ -53,14 +53,16 @@ function displayEmployee() {
         tr.append(deleteButton);
         $("#tableBody").on("click", "#deleteBtn", function () {
             $(this).closest(".bla").remove();
-            // employeeArray.pop();
-        })
+            let newArray = [...employeeArray]
+            newArray.splice(employee, 1)
+            console.log(employeeArray) 
+           })
     }//end for loop
     
 
 }
 
-
+console.log(employeeArray);
 
 
 function readyNow() {
