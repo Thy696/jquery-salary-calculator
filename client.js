@@ -24,41 +24,52 @@ function addEmployee() {
     //empty inputs after added
     $('.input').val('');
 
-    // $(".input").prop("required", true);
 
     displayEmployee();
     calculateTotal();
-    // x();
 } // end addEmployee
 
-var deleteButton = $("<tr><th><button id ='deleteBtn' >Delete</button></th></tr>");
+function buttonMouseEnter() {
+    $(this).css({ 'border': '1px solid lightgray', 'box-shadow': '1px 1px 10px lightgray' });
+}
+function buttonMouseLeave() {
+    $(this).css({ 'border': '0px solid white' });
+}
+
+function headerMouseEnter() {
+    $(this).css({ 'color': ' lightgray' });
+}
+function headerMouseLeave() {
+    $(this).css({ 'color': ' white' });
+}
 
 function displayEmployee() {
     let el = $('#tableBody');
     el.empty();
-    // let deleteButton = $("<button id ='btn' class='btn btn - secondary'>Delete</button>");
-    // let deleteButton = $("<p>wefwf</p>");
     for (let employee of employeeArray) {
-        let tr = $(`<tr><th>${employee.firstName}</th><th>${employee.lastName}</th><th>${employee.id}</th><th>${employee.title}</th><th>${employee.annualSalary}</th></tr>`);
+        let tr = $(`<tr class = 'bla'><th>${employee.firstName}</th><th>${employee.lastName}</th><th>${employee.id}</th><th>${employee.title}</th><th>${employee.annualSalary}</th></tr>`);
         $('#tableBody').append(tr);
+        let deleteButton = $("<tr><th><button id ='deleteBtn' >Delete</button></th></tr>");
         tr.append(deleteButton);
-
+        $("#tableBody").on("click", "#deleteBtn", function () {
+            $(this).closest(".bla").remove();
+            // employeeArray.pop();
+        })
     }//end for loop
-}
-
-function deleteByBtn() {
-    console.log('Click a list item!');
     
-    $('#hi').remove();
 
 }
+
+
 
 
 function readyNow() {
     $('#btn').on('click', addEmployee);
-    deleteButton.on('click', deleteByBtn);
+    $('.input').mouseenter(buttonMouseEnter);
+    $('.input').mouseleave(buttonMouseLeave);
 
-
+    $('.thead').mouseenter(headerMouseEnter);
+    $('.thead').mouseleave(headerMouseLeave);
 }
 
 
