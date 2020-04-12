@@ -47,7 +47,7 @@ function displayEmployee() {
         <th>${employee.lastName}</th>
         <th >${employee.id}</th>
         <th>${employee.title}</th>
-        <th>${employee.annualSalary}</th>
+        <th>$${employee.annualSalary}</th>
         <th><button id ='deleteBtn' >Delete</button></th>
         </tr>`);
 
@@ -63,7 +63,7 @@ function deleteEmployee() {
     $(this).parent().parent().remove();
         let x = $(this);
         employeeArray.splice(x, 1);
-
+return employeeArray;
 }
 
 
