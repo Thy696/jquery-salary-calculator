@@ -10,6 +10,11 @@
     <script src="jquery.js" charset="utf-8"></script>
     <script src="client.js" charset="utf-8"></script>
         <!-- <script src="client1.js" charset="utf-8"></script> -->
+<link
+    href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Playfair+Display:wght@900&family=Ramaraja&display=swap"
+    rel="stylesheet">
+
+
 
 
 </head>
@@ -18,19 +23,19 @@
     <header class=jumbotron>
         <h1>Salary Calculator</h1>
     </header>
-    <div id=form_input>
+    <div id=form_input class="form-group">
         <h4>Add Employee</h4>
         <input type="text" id="firstNameInput" class="input " placeHolder="First name"/>
         <input type="text" id="lastNameInput" class="input " placeHolder="Last name"/>
         <input type="number" id="idNumberInput" class="input " placeHolder="ID"/>
-        <input type="text" id="titleInput" class="input " placeHolder="title"/>
+        <input type="text" id="titleInput" class="input " placeHolder="Title"/>
         <input type="number" id="annualSalaryInput" class="input " placeHolder="Annual Salary"/>
-        <button id="btn" class="btn btn-secondary">Submit</button>
+        <button id="addBtn" class="btn btn-secondary">Submit</button>
     </div>
     <div id=table>
-        <h4>Employees</h4>
-        <table class="table">
-            <thead class='thead-dark'>
+        <h4 class= "list_employee">List employees</h4>
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th class='thead'>First Name</th>
                     <th class='thead' scope="col">Last Name</th>
@@ -41,17 +46,17 @@
 
                 </tr>
             </thead>
-            <tbody id="tableBody">
 
+            <tbody id="tableBody">
             </tbody>
+
         </table>
     </div>
-    <div>
+    
+    <div class= "total_money">
         Total Monthly: $
         <span id=totalOutPut></span>
-    </div>
 
-    <div id="hi">kdjnfjdk</div>
 </body>
 
 </html>

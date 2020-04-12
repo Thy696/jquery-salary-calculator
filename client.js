@@ -47,9 +47,9 @@ function displayEmployee() {
         let tr = $(`<tr >
         <th>${employee.firstName}</th>
         <th>${employee.lastName}</th>
-        <th>${employee.id}</th>
+        <th >${employee.id}</th>
         <th>${employee.title}</th>
-        <th id ="bla">${employee.annualSalary}</th>
+        <th>${employee.annualSalary}</th>
         <th><button id ='deleteBtn' >Delete</button></th>
         </tr>`);
 
@@ -59,9 +59,11 @@ function displayEmployee() {
 }
 
 function deleteEmployee() {
-    $(this).closest("tr").remove();
-    let a = $("tr");
-    employeeArray.splice(a, 1);
+    
+    $(this).parent().parent().remove();
+        let x = $(this);
+        employeeArray.splice(x, 1);
+
 }
 
 
@@ -82,7 +84,7 @@ function calculateTotal() {
 }//end calculateTotalPrice
 
 function readyNow() {
-    $('#btn').on('click', addEmployee);
+    $('#addBtn').on('click', addEmployee);
     $("#tableBody").on("click", "#deleteBtn", deleteEmployee)
 
     $('.input').mouseenter(buttonMouseEnter);
