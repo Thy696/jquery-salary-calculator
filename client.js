@@ -1,6 +1,5 @@
 $(readyNow);
 
-
 employeeArray = [];
 price = 0;
 function addEmployee() {
@@ -24,7 +23,6 @@ function addEmployee() {
     //empty inputs after added
     $('.input').val('');
 
-
     displayEmployee();
     calculateTotal();
 } // end addEmployee
@@ -35,7 +33,6 @@ function buttonMouseEnter() {
 function buttonMouseLeave() {
     $(this).css({ 'border': '0px solid white' });
 }
-
 function headerMouseEnter() {
     $(this).css({ 'color': ' lightgray' });
 }
@@ -46,7 +43,6 @@ function headerMouseLeave() {
 function displayEmployee() {
     let el = $('#tableBody');
     el.empty();
-    counter = 0;
     for (let employee of employeeArray) {
         let tr = $(`<tr >
         <th>${employee.firstName}</th>
@@ -58,18 +54,14 @@ function displayEmployee() {
         </tr>`);
 
         $('#tableBody').append(tr);
-        counter++;
     }//end for loop
     console.log(employeeArray);
 }
-
-console.log(employeeArray);
 
 function deleteEmployee() {
     $(this).closest("tr").remove();
     let a = $("tr");
     employeeArray.splice(a, 1);
-
 }
 
 
