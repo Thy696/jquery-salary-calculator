@@ -46,41 +46,38 @@ function headerMouseLeave() {
 function displayEmployee() {
     let el = $('#tableBody');
     el.empty();
+    counter = 0;
     for (let employee of employeeArray) {
-        let tr = $(`<tr class = 'bla'><th>${employee.firstName}</th><th>${employee.lastName}</th><th>${employee.id}</th><th>${employee.title}</th><th>${employee.annualSalary}</th></tr>`);
-        $('#tableBody').append(tr);
-        let deleteButton = $("<tr><th><button id ='deleteBtn' >Delete</button></th></tr>");
-        tr.append(deleteButton);
-        $("#tableBody").on("click", "#deleteBtn", function () {
-            $(this).closest(".bla").remove();
-            let newArray = [...employeeArray]
-            newArray.splice(employee, 1)
-            console.log(employeeArray) 
-           })
-    }//end for loop
-    
+        let tr = $(`<tr >
+        <th>${employee.firstName}</th>
+        <th>${employee.lastName}</th>
+        <th>${employee.id}</th>
+        <th>${employee.title}</th>
+        <th id ="bla">${employee.annualSalary}</th>
+        <th><button id ='deleteBtn' >Delete</button></th>
+        </tr>`);
 
+        $('#tableBody').append(tr);
+        counter++;
+    }//end for loop
+    console.log(employeeArray);
 }
 
 console.log(employeeArray);
 
+function deleteEmployee() {
+    $(this).closest("tr").remove();
+    let a = $("tr");
+    employeeArray.splice(a, 1);
 
-function readyNow() {
-    $('#btn').on('click', addEmployee);
-    $('.input').mouseenter(buttonMouseEnter);
-    $('.input').mouseleave(buttonMouseLeave);
-
-    $('.thead').mouseenter(headerMouseEnter);
-    $('.thead').mouseleave(headerMouseLeave);
 }
-
 
 
 function calculateTotal() {
     console.log('in calculateTotal');
     let totalMoney = 0;
     for (let i = 0; i < employeeArray.length; i++) {
-        totalMoney += Number(employeeArray[i].annualSalary);
+        totalMoney += Number(employeeArray[i].annualSalary) / 12;
     }//end for loop
     console.log('total price: ', totalMoney);
     let totalPrices = price + totalMoney;
@@ -91,3 +88,14 @@ function calculateTotal() {
         el.css({ 'background-color': 'red' });
     }
 }//end calculateTotalPrice
+
+function readyNow() {
+    $('#btn').on('click', addEmployee);
+    $("#tableBody").on("click", "#deleteBtn", deleteEmployee)
+
+    $('.input').mouseenter(buttonMouseEnter);
+    $('.input').mouseleave(buttonMouseLeave);
+
+    $('.thead').mouseenter(headerMouseEnter);
+    $('.thead').mouseleave(headerMouseLeave);
+}
