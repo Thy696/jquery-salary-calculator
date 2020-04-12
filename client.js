@@ -4,27 +4,25 @@ employeeArray = [];
 price = 0;
 function addEmployee() {
     console.log('in addEmployee');
+    if ($('.input').val() === '') {
+        alert('Please fill the form.')
+    } else {
     const newEmployeeObject = {
-        firstName: firstNameInput,
-        lastName: lastNameInput,
-        id: idNumberInput,
-        title: titleInput,
-        annualSalary: annualSalaryInput,
+        firstName: $('#firstNameInput').val(),
+        lastName: $('#lastNameInput').val(),
+        id: $('#idNumberInput').val(),
+        title: $('#titleInput').val(),
+        annualSalary: $('#annualSalaryInput').val(),
     };
-
-    newEmployeeObject.firstName = $('#firstNameInput').val();
-    newEmployeeObject.lastName = $('#lastNameInput').val();
-    newEmployeeObject.id = $('#idNumberInput').val();
-    newEmployeeObject.title = $('#titleInput').val();
-    newEmployeeObject.annualSalary = $('#annualSalaryInput').val();
-
-    employeeArray.push(newEmployeeObject);
+        employeeArray.push(newEmployeeObject);
+    }
 
     //empty inputs after added
     $('.input').val('');
 
     displayEmployee();
     calculateTotal();
+   
 } // end addEmployee
 
 function buttonMouseEnter() {
@@ -54,7 +52,9 @@ function displayEmployee() {
         </tr>`);
 
         $('#tableBody').append(tr);
+        
     }//end for loop
+   
     console.log(employeeArray);
 }
 
@@ -92,4 +92,5 @@ function readyNow() {
 
     $('.thead').mouseenter(headerMouseEnter);
     $('.thead').mouseleave(headerMouseLeave);
+    
 }
