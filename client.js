@@ -14,7 +14,7 @@ function addEmployee() {
         title: $('#titleInput').val(),
         annualSalary: $('#annualSalaryInput').val(),
     };
-        employeeArray.push(newEmployeeObject);
+    employeeArray.push(newEmployeeObject);
     }
 
     //empty inputs after added
@@ -22,7 +22,7 @@ function addEmployee() {
 
     displayEmployee();
     calculateTotal();
-   
+
 } // end addEmployee
 
 function buttonMouseEnter() {
@@ -45,25 +45,33 @@ function displayEmployee() {
         let tr = $(`<tr >
         <th>${employee.firstName}</th>
         <th>${employee.lastName}</th>
-        <th >${employee.id}</th>
+        <th>${employee.id}</th>
         <th>${employee.title}</th>
         <th>$${employee.annualSalary}</th>
         <th><button id ='deleteBtn' >Delete</button></th>
         </tr>`);
 
         $('#tableBody').append(tr);
-        
+        tr.fadeIn(700);
     }//end for loop
-   
+
     console.log(employeeArray);
 }
 
 function deleteEmployee() {
+
+    $(this).animate({
+        opacity: 0.0
+    }, 250, function () {
+        $(this).parent().parent().remove();
+    });
+    for(employee of employeeArray){
+        // let x = $(this);
+            employeeArray.splice(employee, 1);
+        return employeeArray;
+    }
     
-    $(this).parent().parent().remove();
-        let x = $(this);
-        employeeArray.splice(x, 1);
-return employeeArray;
+    // return employeeArray;
 }
 
 
@@ -77,7 +85,9 @@ function calculateTotal() {
     let totalPrices = price + totalMoney;
     let el = $('#totalOutPut');
     el.empty();
-    el.append(totalPrices);
+    let textTotal = totalMoney.toFixed(2);
+    el.text(textTotal);
+
     if (totalPrices > 20000) {
         el.css({ 'background-color': 'red' });
     }
@@ -85,12 +95,12 @@ function calculateTotal() {
 
 function readyNow() {
     $('#addBtn').on('click', addEmployee);
-    $("#tableBody").on("click", "#deleteBtn", deleteEmployee)
+    $("#tableBody").on("click", "#deleteBtn", deleteEmployee);
 
     $('.input').mouseenter(buttonMouseEnter);
     $('.input').mouseleave(buttonMouseLeave);
 
     $('.thead').mouseenter(headerMouseEnter);
     $('.thead').mouseleave(headerMouseLeave);
-    
+
 }
