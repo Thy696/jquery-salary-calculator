@@ -65,11 +65,9 @@ function deleteEmployee() {
     }, 250, function () {
         $(this).parent().parent().remove();
     });
-    for(employee of employeeArray){
-        // let x = $(this);
+        let x = $(this);
             employeeArray.splice(employee, 1);
         return employeeArray;
-    }
     
     // return employeeArray;
 }
