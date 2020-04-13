@@ -7,14 +7,14 @@ function addEmployee() {
     if ($('.input').val() === '') {
         alert('Please fill the form.')
     } else {
-    const newEmployeeObject = {
-        firstName: $('#firstNameInput').val(),
-        lastName: $('#lastNameInput').val(),
-        id: $('#idNumberInput').val(),
-        title: $('#titleInput').val(),
-        annualSalary: $('#annualSalaryInput').val(),
-    };
-    employeeArray.push(newEmployeeObject);
+        const newEmployeeObject = {
+            firstName: $('#firstNameInput').val(),
+            lastName: $('#lastNameInput').val(),
+            id: $('#idNumberInput').val(),
+            title: $('#titleInput').val(),
+            annualSalary: $('#annualSalaryInput').val(),
+        };
+        employeeArray.push(newEmployeeObject);
     }
 
     //empty inputs after added
@@ -52,7 +52,6 @@ function displayEmployee() {
         </tr>`);
 
         $('#tableBody').append(tr);
-        tr.fadeIn(700);
     }//end for loop
 
     console.log(employeeArray);
@@ -65,11 +64,9 @@ function deleteEmployee() {
     }, 250, function () {
         $(this).parent().parent().remove();
     });
-        let x = $(this);
-            employeeArray.splice(x, 1);
-        return employeeArray;
-    
-    // return employeeArray;
+    let x = $(this);
+    employeeArray.splice(x, 1);
+    return employeeArray;
 }
 
 
